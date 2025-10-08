@@ -1,13 +1,19 @@
 <div class="login-container">
-    <h2>Login</h2>
+  <h2>Login</h2>
 
-    <form (ngSubmit)="fazerlogin()">
-        <label>Email:</label>
-        <input type = "email"[(ngModel)]="email" name="email" required>
+  <form (ngSubmit)="fazerLogin()">
+    <label>
+      <input type="email" [(ngModel)]="email" name="email" placeholder=" " required>
+      <span>Email</span>
+    </label>
 
-        <label>Senha:</label>
-        <input type = "password"[(ngModel)]="senha" name="senha" required>
-        
-        <button type= "submit">Entrar</button>
-    </form>
+    <label>
+      <input type="password" [(ngModel)]="senha" name="senha" placeholder=" " required>
+      <span>Senha</span>
+    </label>
+
+    <button type="submit">Proximo</button>
+  </form>
+
+  <h3><u>Esqueceu sua senha?</u></h3>
 </div>

@@ -1,0 +1,113 @@
+// === Paleta de cores ===
+$bg: #FCD269;         // fundo
+$box: #E88A25;        // caixas de pergunta
+$label-active: #D27C2C; // label quando sobe
+$link-color: #341405; // "Esqueceu senha" e texto do botão
+$btn-bg: #F9E14B;     // botão fundo
+$btn-shadow: #E88A25; // sombra do botão
+
+// === Layout principal ===
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg;
+  padding: 2rem;
+
+  h2 {
+    color: $link-color;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+// === Caixa de entrada (input com label flutuante) ===
+label {
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: $box;
+  border-radius: 10px;
+  padding: 1.2rem 1rem 0.6rem;
+  color: #fff;
+  font-weight: 500;
+
+  input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 0.4rem;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus + span,
+    &:not(:placeholder-shown) + span {
+      transform: translateY(-1.2rem) scale(0.9);
+      color: $label-active;
+    }
+  }
+
+  // Label que "sobe" (usamos <span> dentro da <label>)
+  span {
+    position: absolute;
+    left: 1rem;
+    top: 1.2rem;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    color: #341405;
+  }
+}
+
+// === Link "Esqueceu senha" ===
+h3 {
+  color: $link-color;
+  margin-top: 0.8rem;
+  text-align: center;
+  cursor: pointer;
+
+  u {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// === Botão ===
+button {
+  background-color: $btn-bg;
+  color: $link-color;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 6px 0 $btn-shadow;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 0 3px 0 $btn-shadow;
+  }
+
+  &:hover {
+    filter: brightness(0.98);
+  }
+}
